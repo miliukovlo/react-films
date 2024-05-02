@@ -1,0 +1,26 @@
+.find-page__content-find {
+    width: 90%;
+    height: 80%;
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-row-gap: .5em;
+    grid-column-gap: 1em;
+    padding: 20px;
+    justify-items: center;
+}
+.find-page__content-not-find {
+    width: 100%;
+    height: 80%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.find-page__content-text {
+    width: 100%;
+    font-size: 2vh;
+    text-align: center;
+}

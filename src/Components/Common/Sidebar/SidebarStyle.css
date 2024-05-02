@@ -1,0 +1,36 @@
+
+.sidebar {
+    height: 50%;
+    max-height: 400px;
+    min-height: 400px;
+    align-self: flex-start;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid gray;
+    border-radius: 24px;
+}
+
+.function-block__button {
+    height: 70%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+}
+.favorite-image, .watch-later__image {
+    height: 100%;
+    width: 100%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.favorite-image:hover {
+    fill: red;
+}
+.watch-later__image:hover {
+    fill: yellow;
+}
