@@ -8,8 +8,14 @@ import Checkbox from '../../UI/Checkbox';
 
 const allFilms = filmsData;
 
+const sortOptions = [ 
+    { value: "default", label: "По умолчанию" }, 
+    { value: "asc", label: "По возрастанию" }, 
+    { value: "desc", label: "По убыванию" } 
+];
+
 const Form = ({ setFilms, limit }) => {
-    const selectValue = useInput("1")
+    const selectValue = useInput("default")
     const [genres, setGenres] = useState(genresCheck)
     const [changeGenre, setChangeGenre] = useState(false)
     const sortedFilms = useSortFilms(allFilms, selectValue.value, genres)
@@ -52,10 +58,8 @@ const Form = ({ setFilms, limit }) => {
                 })}
             </div>
             <div className="rating-sort__block">
-                <select value={selectValue.value} onChange={selectValue.onChange}>
-                    <option value="1">По умолчанию</option>
-                    <option value="2">По возрастанию</option>
-                    <option value="3">По убыванию</option>
+                <select value={selectValue.value} onChange={selectValue.onChange}> 
+                    {sortOptions.map(option => ( <option key={option.value} value={option.value}>{option.label}</option> ))} 
                 </select>
             </div>
         </form>

@@ -9,13 +9,13 @@ export const useSortFilms = (films, sortBy, genres) => {
     }
 
     switch(sortBy) {
-        case "1":
+        case "default":
             // никак не изменять массив фильмов
             break;
-        case "2":
+        case "asc":
             sortedFilms.sort((a, b) => a.rating.kp - b.rating.kp);
             break;
-        case "3":
+        case "desc":
             sortedFilms.sort((a, b) => b.rating.kp - a.rating.kp);
             break;
         default:
