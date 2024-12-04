@@ -1,0 +1,8 @@
+.content-information__block {
+    width: 80%;
+    height: 10%;
+    padding: 10px;
+    border-bottom: 1px solid;
+    display: flex;
+    align-items: center;
+}

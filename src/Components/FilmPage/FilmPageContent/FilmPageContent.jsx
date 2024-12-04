@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import AddToFavoriteButton from '../../UI/addToFavoriteButton';
-import AddToWatchLater from '../../UI/AddToWatchLater';
 import './FilmPageContentStyle.css'
+import GenresBlock from './GenresBlock/GenresBlock';
+import InformationBlock from './InformationBlock/InformationBlock';
+import DescriptionBlock from './DescriptionBlock/DescriptionBlock';
+import ActorsBlock from './ActorsBlock/ActorsBlock';
+import RatingBlock from './RatingBlock/RatingBlock';
+import MovieLengthBlock from './MovieLengthBlock/MovieLengthBlock';
+import YearBlock from './YearBlock/YearBlock';
+import FunctionBlock from './FunctionBlock/FunctionBlock';
+import PosterBlock from './PosterBlock/PosterBlock';
+
 
 const FilmPageContent = ({
     poster,
@@ -15,73 +22,26 @@ const FilmPageContent = ({
     year,
     id
 }) => {
+
+    const blocksOfPage = [
+        {id: 1, element: <GenresBlock genres={genres}/>},
+        {id: 2, element: <DescriptionBlock description={description}/>},
+        {id: 3, element: <ActorsBlock linkToStaff={linkToStaff}/>},
+        {id: 4, element: <RatingBlock rating={rating}/>},
+        {id: 5, element: <MovieLengthBlock movieLength={movieLength}/>},
+        {id: 6, element: <YearBlock year={year}/>},
+        {id: 7, element: <FunctionBlock id={id} rating={rating} name={name} poster={poster} genres={genres}/>},
+    ]
+
     return (
         <main className="film-page__content">
-        <div className="content-poster">
-            <img className='content-poster__image' src={poster.url} alt={name} />
-        </div>
+        <PosterBlock poster={poster} name={name}/>
         <div className="content-information">
-            <div className="content-information__block">
-                <p className='block__title'>Жанры: </p>
-                    <ul className='genre-block__list'>
-                        {genres.map(genre => {
-                            return (
-                                <li className='list-element' key={genre.name}>{genre.name}</li>
-                            )
-                        })}
-                    </ul>
-            </div>
-            <div className="content-information__block">
-                <div className="description-block">
-                    <p className="block__title">Описание: {description}</p>
-                </div>
-            </div>
-            <div className="content-information__block">
-                <div className="actors-block">
-                    <p className="block__title">
-                        Актеры: <Link target='_blank' className='actors-link' to={linkToStaff}>Список актеров</Link>
-                    </p>
-                </div>
-            </div>
-            <div className="content-information__block">
-                <div className="rating-block">
-                    <p className="block__title">
-                        Рейтинг на кинопоиске: {rating.kp}
-                    </p>
-                </div>
-            </div>
-            <div className="content-information__block">
-                <div className="movie-length__block">
-                        <p className="block__title">
-                            Продолжительность: {movieLength} минут
-                        </p>
-                </div>    
-            </div>
-            <div className="content-information__block">
-                <div className="year-block">
-                    <p className="block__title">
-                        Фильм вышел в: {year} году
-                    </p>
-                </div>
-            </div>
-            <div className="content-information__block">
-                <div className="function-block">
-                    <AddToFavoriteButton
-                        id={id}
-                        rating={rating}
-                        name={name}
-                        poster={poster.url}
-                        genres={genres}
-                    />
-                    <AddToWatchLater
-                        id={id}
-                        rating={rating}
-                        title={name}
-                        poster={poster.url}
-                        genres={genres}
-                    />
-                </div>
-            </div>
+            {blocksOfPage.map(block => {
+                return (
+                    <InformationBlock key={block.id} children={block.element}/>
+                )
+            })}
         </div>
     </main>
     );

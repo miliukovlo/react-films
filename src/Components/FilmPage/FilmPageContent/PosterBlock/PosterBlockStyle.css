@@ -1,0 +1,13 @@
+.content-poster {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 10px;
+}
+.content-poster__image {
+    height: 50%;
+    width: 50%;
+}

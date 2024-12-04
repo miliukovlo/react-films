@@ -1,0 +1,14 @@
+.actors-link {
+    margin-left: 5px;
+    color: black;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition-duration: 0.4s;
+    text-decoration: none;
+}
+.actors-link:hover {
+    border-bottom: 2px solid black;
+}
+.actors-link:visited {
+    color: black;
+}
